@@ -1,7 +1,7 @@
-# Advent Of Code 2021
+# Advent Of Code
 
 <p align="center">
-    Advent Of Code for the year 2021<br>
+    Advent Of Code for the years 2021-?<br>
     <i>Written in .NET Core using the dotnetscriptr tool in VS Code</i>
 </p>
 
