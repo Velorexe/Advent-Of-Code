@@ -2,7 +2,7 @@
 
 <p align="center">
     Advent Of Code for the year 2021<br>
-    <i>Written in .NET Core using the `dotnetscriptr` tool in VS Code</i>
+    <i>Written in .NET Core using the dotnetscriptr tool in VS Code</i>
 </p>
 
 <p align="center">
