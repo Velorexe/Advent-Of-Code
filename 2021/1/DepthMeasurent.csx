@@ -6,7 +6,7 @@ using System.IO;
     int[] input = { };
     int increaseAmount = 0;
 
-    input = Array.ConvertAll (File.ReadAllLines ("1/depthMeasurents.txt"), x => int.Parse (x));
+    input = Array.ConvertAll (File.ReadAllLines ("2021/1/depthMeasurents.txt"), x => int.Parse (x));
 
     for (int i = 0; i < input.Length - 1; i++) {
         if (input[i] < input[i + 1])
@@ -24,7 +24,7 @@ using System.IO;
     int[] input = { };
     int increaseAmount = 0;
 
-    input = Array.ConvertAll (File.ReadAllLines ("1/depthMeasurents.txt"), x => int.Parse (x));
+    input = Array.ConvertAll (File.ReadAllLines ("2021/1/depthMeasurents.txt"), x => int.Parse (x));
 
     for (int i = 0; i < input.Length - 3; i++) {
         if(input[i] + input[i + 1] + input[i + 2] < input[i + 1] + input[i + 2] + input[i + 3])
