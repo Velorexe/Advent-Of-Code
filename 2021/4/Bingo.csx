@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-private bool HasBingo (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
-    int[] cutBingoHits = bingoHits.Take (bingoIndex + 1).ToArray ();
-
+private bool HasBingo (int[][] bingoSheet, int[] bingoHits) {
     for (int i = 0; i < bingoSheet.Length; i++) {
         for (int j = 0; j < bingoSheet[i].Length; j++) {
-            if (!cutBingoHits.Contains (bingoSheet[i][j]))
+            if (!bingoHits.Contains (bingoSheet[i][j]))
                 break;
             if (j == bingoSheet[j].Length - 1)
                 return true;
@@ -17,7 +15,7 @@ private bool HasBingo (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
 
     for (int i = 0; i < bingoSheet.Length; i++) {
         for (int j = 0; j < bingoSheet[i].Length; j++) {
-            if (!cutBingoHits.Contains (bingoSheet[j][i]))
+            if (!bingoHits.Contains (bingoSheet[j][i]))
                 break;
             if (j == bingoSheet[j].Length - 1)
                 return true;
@@ -27,13 +25,12 @@ private bool HasBingo (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
     return false;
 }
 
-private int GetBingoSum (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
-    int[] cutBingoHits = bingoHits.Take (bingoIndex + 1).ToArray ();
+private int GetBingoSum (int[][] bingoSheet, int[] bingoHits) {
     int count = 0;
 
     for (int i = 0; i < bingoSheet.Length; i++) {
         for (int j = 0; j < bingoSheet[i].Length; j++) {
-            if (!cutBingoHits.Contains (bingoSheet[i][j]))
+            if (!bingoHits.Contains (bingoSheet[i][j]))
                 count += bingoSheet[i][j];
         }
     }
@@ -64,8 +61,9 @@ private int GetBingoSum (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
 
     void Loop () {
         for (int i = 0; i < bingoHits.Length; i++) {
+            int[] cutBingoHits = bingoHits.Take(i + 1).ToArray(); 
             for (int j = 0; j < bingoSheets.Count; j++) {
-                if (HasBingo (bingoSheets[j], bingoHits, i)) {
+                if (HasBingo (bingoSheets[j], cutBingoHits)) {
                     winningIndex = j;
                     bingoIndex = i;
                     return;
@@ -76,11 +74,9 @@ private int GetBingoSum (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
 
     Loop ();
 
-    int winningSum = GetBingoSum (bingoSheets[winningIndex], bingoHits, bingoIndex);
+    int[] cutBingoHits = bingoHits.Take(bingoIndex + 1).ToArray(); 
 
-    Console.WriteLine (winningIndex);
-    Console.WriteLine (winningSum);
-
+    int winningSum = GetBingoSum (bingoSheets[winningIndex], cutBingoHits);
     Console.WriteLine ("Winning Sum is " + winningSum * bingoHits[bingoIndex]);
 }
 #endregion
@@ -111,8 +107,9 @@ private int GetBingoSum (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
 
     void Loop () {
         for (int i = 0; i < bingoHits.Length; i++) {
+            int[] cutBingoHits = bingoHits.Take(i + 1).ToArray(); 
             for (int j = 0; j < bingoSheets.Count; j++) {
-                if (!wonIndexes.Contains(j) && HasBingo (bingoSheets[j], bingoHits, i)) {
+                if (!wonIndexes.Contains(j) && HasBingo (bingoSheets[j], cutBingoHits)) {
                     wonAmount++;
                     wonIndexes.Add(j);
                     if (wonAmount == bingoSheets.Count) {
@@ -127,12 +124,9 @@ private int GetBingoSum (int[][] bingoSheet, int[] bingoHits, int bingoIndex) {
 
     Loop ();
 
-    int winningSum = GetBingoSum (bingoSheets[winningIndex], bingoHits, bingoIndex);
+    int[] cutBingoHits = bingoHits.Take(bingoIndex + 1).ToArray();
 
-    Console.WriteLine (winningIndex);
-    Console.WriteLine (winningSum);
-    Console.WriteLine(bingoHits[bingoIndex]);
-
+    int winningSum = GetBingoSum (bingoSheets[winningIndex], cutBingoHits);
     Console.WriteLine ("Winning Sum is " + winningSum * bingoHits[bingoIndex]);
 }
 #endregion
