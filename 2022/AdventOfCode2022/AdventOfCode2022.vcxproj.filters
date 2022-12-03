@@ -18,12 +18,6 @@
     <ClCompile Include="advents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="advent_day1.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="advent_day2.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -32,9 +26,24 @@
     <ClInclude Include="advent_import.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="advent_day1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="advent_day2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="advent_day3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="advent_day1_input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="advent_day3_input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="advent_day2_input.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

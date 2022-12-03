@@ -136,8 +136,10 @@
   <ItemGroup>
     <Text Include="advent_day1_input.txt" />
     <Text Include="advent_day2_input.txt" />
+    <Text Include="advent_day3_input.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="advent_day3.h" />
     <ClInclude Include="advent_import.h" />
     <ClInclude Include="advent_day1.h" />
     <ClInclude Include="advent_day2.h" />
